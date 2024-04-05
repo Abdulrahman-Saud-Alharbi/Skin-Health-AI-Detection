@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Your existing styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; 
+            color: #333; 
+        }
+
+        header {
+            background-color: #007BFF; 
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #0056b3; 
+            padding: 0.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 1em;
+            margin: 0 1em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffcc00; 
+        }
+
+        section {
+            margin: 2em;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 1em;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #diseases {
+            margin: 2em;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        h2, h3, h4 {
+            color: #007BFF; 
+        }
+
+        a {
+            color: #0056b3; 
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #ffcc00; 
+        }
+
+        p {
+            color: #555; 
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* New styles for the "Disease Detection" button */
+        #disease-detection {
+            text-align: center;
+            margin-top: 3em; /* Increase the distance from the section above */
+        }
+
+        #add-picture-button {
+            background-color: #28a745; /* Green color */
+            color: #fff;
+            font-size: 1.5em;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #add-picture-button:hover {
+            background-color: #218838; /* Darker green color on hover */
+        }
+    </style>
+    <title>Skin Health Insight</title>
+</head>
+<body>
+    <header>
+        <h1>Skin Health Insight</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#diseases">Diseases</a></li>
+            <li><a href="#disease-detection-button" id="disease-detection-button">Disease Detection</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- New section for Disease Detection -->
+    <section id="disease-detection">
+        <h2>Disease Detection</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Detect Disease</button>
+        </form>
+        <!-- Display prediction result -->
+        {% if prediction %}
+            <h3>Prediction: {{ prediction }}</h3>
+        {% endif %}
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to Health Skin Insight, where we're passionate about empowering you with the knowledge and tools to achieve your best skin health. Whether you're battling skin conditions or seeking to maintain your skin's natural glow, we're here to guide you on your journey to healthier skin.</p>
+            <img src="https://i.pinimg.com/736x/9d/ed/60/9ded608382c4978e504c3c79dc4abed2.jpg" alt="Skin Diseases">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ijae4iURrDI?si=yYIyWzeaNilxMdiM" frameborder="0" allowfullscreen></iframe>
+            </div>
+       
+        <section id="about">
+            <h2>About</h2>
+            <p>Our Mission: At Health Skin Insight, our mission is to empower individuals with comprehensive, scientifically-backed, and easy-to-understand information about skin health. We believe that everyone deserves to feel confident and comfortable in their skin, and our goal is to help make that a reality.</p>
+        </section>
+       
+        <section id="diseases">
+            <h2>Diseases</h2>
+            <!-- Psoriasis -->
+            <div>
+                <h3>Psoriasis</h3>
+                <img src="https://balmonds.com/cdn/shop/articles/BL-How-Serious-Is-Psoriasis.jpg?v=1600426493&width=900p" alt="Psoriasis Image">
+                <p>Psoriasis is a chronic skin condition characterized by red, itchy, and scaly patches. It is an autoimmune disease that often affects the skin, nails, and joints.</p>
+                <h4>Causes:</h4>
+                <p>The exact cause of psoriasis is not known, but it is believed to involve a combination of genetic and environmental factors.</p>
+                <h4>Treatment:</h4>
+                <p>Treatment options include topical creams, phototherapy, and systemic medications to manage symptoms and control inflammation.</p>
+            </div>
+            <!-- Urticaria -->
+            <div>
+                <h3>Urticaria</h3>
+                <img src="https://compassiondermatology.com/wp-content/uploads/2022/01/Chronic-Urticaria-How-Your-Dermatologist-Can-Help.jpg" alt="Urticaria Image">
+                <p>Urticaria, commonly known as hives, is a skin rash that appears as raised, red, and itchy welts. It can be triggered by various factors, including allergies and stress.</p>
+                <h4>Causes:</h4>
+                <p>Allergies, medications, infections, and stress can contribute to the development of urticaria.</p>
+                <h4>Treatment:</h4>
+                <p>Antihistamines are often prescribed to relieve itching, and in severe cases, corticosteroids may be recommended.</p>
+            </div>
+            <!-- Eczema -->
+            <div>
+                <h3>Eczema</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Dermatitis2015.jpg" alt="Eczema Image">
+                <p>Eczema is a chronic skin condition that causes inflammation, itching, and redness. It can vary in severity and may be triggered by allergens or irritants.</p>
+                <h4>Causes:</h4>
+                <p>Genetics, environmental factors, and an overactive immune system are believed to contribute to the development of eczema.</p>
+                <h4>Treatment:</h4>
+                <p>Moisturizers, topical corticosteroids, and antihistamines are commonly used to manage symptoms and prevent flare-ups.</p>
+            </div>
+            <!-- Lichen Planus -->
+            <div>
+                <h3>Lichen Planus</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Lichen_Planus_%282%29.JPG" alt="Lichen Planus Image">
+                <p>Lichen Planus is an inflammatory skin condition that can affect the skin, mucous membranes, and nails. It often appears as shiny, flat-topped bumps.</p>
+                <h4>Causes:</h4>
+                <p>The exact cause is unknown, but it is believed to involve an abnormal immune response.</p>
+                <h4>Treatment:</h4>
+                <p>Topical corticosteroids, antihistamines, and oral medications may be prescribed to alleviate symptoms.</p>
+            </div>
+            <!-- Acne -->
+            <div>
+                <h3>Acne</h3>
+                <img src="https://www.usdermatologypartners.com/wp-content/uploads/2023/04/AdobeStock_61720335_Resized-for-hero.jpg" alt="Acne Image">
+                <p>Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells. It often results in pimples, blackheads, and whiteheads.</p>
+                <h4>Causes:</h4>
+                <p>Excess oil production, clogged pores, bacteria, and hormonal changes are common factors contributing to acne.</p>
+                <h4>Treatment:</h4>
+                <p>Treatment options include topical retinoids, antibiotics, and oral contraceptives to manage acne lesions and prevent new ones from forming.</p>
+            </div>
+            <!-- Vitiligo -->
+            <div>
+                <h3>Vitiligo</h3>
+                <img src="https://assets-global.website-files.com/6310b6791bbf804f52db72e8/646bbab3f5f30a852dcc4eea_what%20is%20vitiligo%20(1).jpg" alt="Vitiligo Image">
+                <p>Vitiligo is a skin disorder characterized by the loss of pigment in certain areas of the skin, resulting in white patches. The exact cause is not fully understood.</p>
+                <h4>Causes:</h4>
+                <p>The exact cause is unclear, but it is thought to involve an autoimmune response that attacks pigment-producing cells.</p>
+                <h4>Treatment:</h4>
+                <p>Treatment may include topical corticosteroids, phototherapy, and depigmentation for widespread vitiligo to even out skin tone.</p>
+            </div>
+           
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can contact us at:<br>
+                <a href="mailto:smohammedalshumrani@stu.kau.edu.sa,amohamedalharbi@stu.kau.edu.sa">smohammedalshumrani@stu.kau.edu.sa</a><br>
+                <a href="mailto:amohamedalharbi@stu.kau.edu.sa">amohamedalharbi@stu.kau.edu.sa</a></p>
+                <a href="ybarkat0001@stu.kau.edu.sa">ybarkat0001@stu.kau.edu.saa</a></p>
+        </section>
+        <footer>
+            <p>CPIT-380 Project</p>
+        </footer>
+    
+        </script>
+    </body>
+    </html>
+    
